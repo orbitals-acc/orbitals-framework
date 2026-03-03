@@ -1,0 +1,97 @@
+project_template:
+  name: "{{project_name}}"
+  description: "ML project with Orbitals Framework"
+
+  directories:
+
+    - name: "source"
+      description: "Raw session-level data (event logs)"
+      required: true
+      files:
+        - "*.csv"
+
+    - name: "configs"
+      description: "Project configuration files"
+      required: true
+      files:
+        - "*.yaml"
+
+    - name: "artifacts"
+      description: "Derived artifacts produced by the Orbitals framework"
+      required: true
+      structure:
+
+        - name: "learning"
+          description: "Artifacts for model training and rule extraction"
+          required: true
+          structure:
+
+            - name: "data"
+              description: "Learning datasets (features + targets)"
+              required: true
+              files:
+                - "*.csv"
+
+            - name: "info"
+              description: "Training and model metadata"
+              required: true
+              structure:
+
+                - name: "catboost_info"
+                  description: "Additional information about CatBoost models"
+                  required: false
+
+                - name: "catboost_logs"
+                  description: "CatBoost training logs"
+                  required: true
+
+                - name: "catboost_model"
+                  description: "Serialized CatBoost model files"
+                  required: true
+
+                - name: "polynomial_form"
+                  description: "Monoforest polynomial representation of decision trees"
+                  required: true
+                  files:
+                    - "active.yaml"
+                    - "*.yaml"
+
+                - name: "compact"
+                  description: "Compact Operation for Table Rule"
+                  required: true
+                  files:
+                    - "active.yaml"
+                    - "*.yaml"
+
+        - name: "evaluation"
+          description: "Evaluation artifacts for the Orbitals framework"
+          required: true
+          structure:
+
+            - name: "stream"
+              description: "Stream estimates and monitoring over time"
+              required: true
+              structure:
+
+                - name: "data"
+                  description: "Per-timestamp datasets for stream estimates"
+                  required: true
+                  structure:
+                    - name: "{{dir_name}}"
+                      description: "Stream batch directory (e.g., timestamp or sample id)"
+                      required: false
+                      files:
+                        - "*.csv"
+                  validation:
+                    - "CSV files must have a consistent schema"
+                    - "CSV files must include a timestamp column"
+
+                - name: "potentials"
+                  description: "Estimated orbital potentials (V_c) from stream data"
+                  required: true
+                  structure:
+                    - name: "{{dir_name}}"
+                      description: "Potentials batch directory"
+                      required: false
+                      files:
+                        - "active.yaml"
