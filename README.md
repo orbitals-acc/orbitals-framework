@@ -56,13 +56,4 @@ Run in order:
 2. `aa_test.ipynb` — A/A sanity check.
 3. `bnpl_test.ipynb` — BNPL experiment.
 
-## Citation
-
-```bibtex
-@inproceedings{orbitals2026,
-  title     = {Orbitals: A Target-aware Segmentation for Long-Term
-               Effect Estimation in A/B Testing},
-  booktitle = {Proc. 49th International ACM SIGIR Conference},
-  year      = {2026}
-}
 ```
