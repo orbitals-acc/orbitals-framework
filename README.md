@@ -5,9 +5,6 @@ Orbitals: A target-aware segmentation framework for estimating Limited LTV (lLTV
 from short-term A/B tests using interpretable behavioral archetypes and transition dynamics.
 
 
-(Reproduction code for *“Orbitals: A Target-aware Segmentation for Long-Term Effect Estimation in A/B Testing”* (SIGIR ’26))
-
-
 
 ## Installation
 
