@@ -55,5 +55,3 @@ Run in order:
 2. `predictive.ipynb` — strong predictive baseline for lLTV.
 2. `aa_test.ipynb` — A/A sanity check.
 3. `bnpl_test.ipynb` — BNPL experiment.
-
-```
